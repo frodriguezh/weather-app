@@ -1,5 +1,6 @@
 import React from 'react'
 import  Grid  from '@material-ui/core/Grid'
+import AppFrame from '../components/AppFrame/AppFrame'
 import CityInfo from './../components/CityInfo'
 import Weather from './../components/Weather'
 import WheaterDetails from './../components/WheaterDetails'
@@ -54,35 +55,38 @@ export const CityPage = () => {
     ]
 
     return (
-        <Grid container
+        <AppFrame>
+            <Grid container
             justifyContent="space-around"
             direction="column"
             spacing={2}>
 
-            <Grid item container 
-                xs={12}
-                justifyContent="center"
-                alignItems="flex-end">
-                <CityInfo city={"Iquique"} country={"Chile"}/>
-            </Grid>
+                <Grid item container 
+                    xs={12}
+                    justifyContent="center"
+                    alignItems="flex-end">
+                    <CityInfo city={"Iquique"} country={"Chile"}/>
+                </Grid>
 
-            <Grid container item 
-                xs={12}
-                justifyContent="center">
-                <Weather temperature={10} state="cloud" />
-                <WheaterDetails humidity={80} wind= {10}/>
- 
-            </Grid>
+                <Grid container item 
+                    xs={12}
+                    justifyContent="center">
+                    <Weather temperature={10} state="cloud" />
+                    <WheaterDetails humidity={80} wind= {10}/>
+    
+                </Grid>
 
-            <Grid item>
-                <ForecastChart data={data}/>
-            </Grid>
+                <Grid item>
+                    <ForecastChart data={data}/>
+                </Grid>
 
-            <Grid item>
-                <Forecast forecastItemList = {forecastItemList}/>
-            </Grid>
+                <Grid item>
+                    <Forecast forecastItemList = {forecastItemList}/>
+                </Grid>
 
-        </Grid>
+            </Grid>
+        </AppFrame>
+        
     )
 }
 
