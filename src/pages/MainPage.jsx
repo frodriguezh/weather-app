@@ -5,9 +5,9 @@ import AppFrame from './../components/AppFrame'
 import CityList from './../components/CityList'
 
 const cities = [
-    {city: "Iquique", country: "Chile"},
-    {city: "Tokio", country: "Japón"},
-    {city: "Lima", country: "Perú"}
+    {city: "Santiago", country: "Chile", countryCode: "CL"},
+    {city: "Buenos Aires", country: "Argentina", countryCode: "AR"},
+    {city: "Lima", country: "Perú", countryCode: "PE"}
 ]
 
 const MainPage = () => {

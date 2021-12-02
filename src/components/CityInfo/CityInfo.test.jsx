@@ -8,7 +8,7 @@ test("CityInfo Render", async () => {
 
     //Arrange
     //Act
-    const city = "Iquique"
+    const city = "Santiago"
     const country = "Chile"
     
     const { findAllByRole } = render(<CityInfo city={city} country={country} />)

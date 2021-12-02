@@ -65,7 +65,7 @@ export const CityPage = () => {
                     xs={12}
                     justifyContent="center"
                     alignItems="flex-end">
-                    <CityInfo city={"Iquique"} country={"Chile"}/>
+                    <CityInfo city={"Santiago"} country={"Chile"}/>
                 </Grid>
 
                 <Grid container item 

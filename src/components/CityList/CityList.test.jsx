@@ -3,8 +3,8 @@ import { render, fireEvent } from '@testing-library/react'
 import CityList from '../CityList/CityList'
 
 const cities = [
-    {city: "Iquique", country: "Chile"},
-    {city: "Tokio", country: "Japón"},
+    {city: "Santiago", country: "Chile"},
+    {city: "Buenos Aires", country: "Argentina"},
     {city: "Lima", country: "Perú"}
 ]
 

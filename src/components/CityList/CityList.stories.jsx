@@ -8,9 +8,9 @@ export default {
 }
 
 const cities = [
-    {city: "Iquique", country: "Chile"},
-    {city: "Tokio", country: "Japón"},
-    {city: "Lima", country: "Perú"}
+    {city: "Santiago", country: "Chile"},
+    {city: "Buenos Aires", country: "Argentina"},
+    {city: "Lima", country: "Peru"}
 ]
 
 export const CityListExample = () => <CityList cities = {cities} onClickCity = {action("Click on city text")}/>
