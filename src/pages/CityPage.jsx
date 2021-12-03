@@ -46,10 +46,10 @@ export const CityPage = () => {
 
     const forecastItemList = [
  
-        { weekDay: "Jueves", hour: 18, state: "sunny", temperature: 17 },
-        { weekDay: "Viernes", hour: 6, state: "cloud", temperature: 18 },
-        { weekDay: "Viernes", hour: 12, state: "fog", temperature: 18 },
-        { weekDay: "Viernes", hour: 18, state: "cloudy", temperature: 19 },
+        { weekDay: "Jueves", hour: 18, state: "clear", temperature: 17 },
+        { weekDay: "Viernes", hour: 6, state: "clouds", temperature: 18 },
+        { weekDay: "Viernes", hour: 12, state: "clear", temperature: 18 },
+        { weekDay: "Viernes", hour: 18, state: "clouds", temperature: 19 },
         { weekDay: "Sábado", hour: 14, state: "rain", temperature: 17 },
         { weekDay: "Sábado", hour: 12, state: "rain", temperature: 17 },
     ]
@@ -71,7 +71,7 @@ export const CityPage = () => {
                 <Grid container item 
                     xs={12}
                     justifyContent="center">
-                    <Weather temperature={10} state="cloud" />
+                    <Weather temperature={10} state="clouds" />
                     <WheaterDetails humidity={80} wind= {10}/>
     
                 </Grid>
