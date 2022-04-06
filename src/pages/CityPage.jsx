@@ -1,58 +1,16 @@
 import React from 'react'
-import  Grid  from '@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid'
 import AppFrame from '../components/AppFrame/AppFrame'
 import CityInfo from './../components/CityInfo'
 import Weather from './../components/Weather'
 import WheaterDetails from './../components/WheaterDetails'
 import Forecast from './../components/Forecast'
 import ForecastChart from './../components/ForecastChart'
-
-
+import useCityPage from './../hooks/useCityPage'
 
 export const CityPage = () => {
 
-    const data = [
-        {
-            "dayHour": "Jue 18",
-            "min": 14,
-            "max": 22,
-        },
-        {
-            "dayHour": "Vie 06",
-            "min": 18,
-            "max": 27,
-        },
-        {
-            "dayHour": "Vie 12",
-            "min": 18,
-            "max": 28,
-        },
-        {
-            "dayHour": "Vie 18",
-            "min": 18,
-            "max": 25,
-        },
-        {
-            "dayHour": "Sab 06",
-            "min": 15,
-            "max": 22,
-        },
-        {
-            "dayHour": "Sab 12",
-            "min": 12,
-            "max": 19,
-        }
-    ]
-
-    const forecastItemList = [
- 
-        { weekDay: "Jueves", hour: 18, state: "clear", temperature: 17 },
-        { weekDay: "Viernes", hour: 6, state: "clouds", temperature: 18 },
-        { weekDay: "Viernes", hour: 12, state: "clear", temperature: 18 },
-        { weekDay: "Viernes", hour: 18, state: "clouds", temperature: 19 },
-        { weekDay: "Sábado", hour: 14, state: "rain", temperature: 17 },
-        { weekDay: "Sábado", hour: 12, state: "rain", temperature: 17 },
-    ]
+    const { chartData, forecastItemList, city } = useCityPage()
 
     return (
         <AppFrame>
@@ -65,7 +23,7 @@ export const CityPage = () => {
                     xs={12}
                     justifyContent="center"
                     alignItems="flex-end">
-                    <CityInfo city={"Santiago"} country={"Chile"}/>
+                    <CityInfo city={city} country={"Santiago"}/>
                 </Grid>
 
                 <Grid container item 
@@ -77,11 +35,11 @@ export const CityPage = () => {
                 </Grid>
 
                 <Grid item>
-                    <ForecastChart data={data}/>
+                    { chartData && <ForecastChart data={chartData}/> }
                 </Grid>
 
                 <Grid item>
-                    <Forecast forecastItemList = {forecastItemList}/>
+                    { forecastItemList && <Forecast forecastItemList = {forecastItemList}/> }
                 </Grid>
 
             </Grid>
