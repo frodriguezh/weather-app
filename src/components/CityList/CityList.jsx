@@ -45,9 +45,11 @@ const renderCityAndCountry = eventOnClickCity => (cityAndCountry , weather) => {
 }
 
 
-const CityList = ({ cities, onClickCity }) => {
+const CityList = ({ cities, onClickCity, onSetAllWeather, allWeather }) => {
 
-    const { allWeather, error, setError } = useCityList(cities)
+    const { error, setError } = useCityList(cities, onSetAllWeather)
+
+
     return (
         <div>
             {

@@ -3,7 +3,8 @@ const cities = [
 
     {city: "Santiago", country: "Chile", countryCode: "CL"},
     {city: "Buenos Aires", country: "Argentina", countryCode: "AR"},
-    {city: "Lima", country: "Perú", countryCode: "PE"}
+    {city: "Lima", country: "Perú", countryCode: "PE"},
+    {city: "Madrid", country: "España", countryCode: "ES"}
 ]
 
 

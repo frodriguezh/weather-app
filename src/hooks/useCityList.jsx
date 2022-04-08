@@ -5,9 +5,9 @@ import { getWeatherUrl } from './../utils/urls'
 
 
 
-const useCityList = (cities) => {
+const useCityList = (cities, onSetAllWeather) => {
 
-    const [allWeather, setAllWeather] = useState({})
+    //const [allWeather, setAllWeather] = useState({})
     const [error, setError] = useState()
 
     useEffect(() => {
@@ -20,10 +20,8 @@ const useCityList = (cities) => {
                 const response = await axios.get(url)
 
                 const allWeatherAux = getAllWeather(response, city, countryCode)
-
                 
-                setAllWeather(allWeather =>  ({...allWeather, ...allWeatherAux }))
-                
+                onSetAllWeather(allWeatherAux)
                     
             } catch (error) {
 
@@ -53,9 +51,9 @@ const useCityList = (cities) => {
         
         
         
-    }, [cities])
+    }, [cities, onSetAllWeather])
 
-    return { allWeather, error, setError }
+    return {  error, setError }
 }
 
 export default useCityList
