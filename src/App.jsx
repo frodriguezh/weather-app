@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react'
+import React, {useReducer} from 'react'
 import { BrowserRouter as Router,
          Switch,
          Route } from 'react-router-dom'
@@ -9,14 +9,39 @@ import NotFoundPage from './pages/NotFoundPage'
 
 const App = () => {
 
-    const [allWeather, setAllWeather] = useState({})
+    
+    const initialValue = {
+        allWeather: {},
+        allChartData: {},
+        allForecastItemList: {}
+    }
 
-    const onSetAllWeather = useMemo( () => ((weatherCity) => { 
-        setAllWeather(allWeather => {
-            return ({ ...allWeather, ...weatherCity })
-        
-        })
-    }), [setAllWeather])
+    const reducer = (state, action) => {
+
+        switch (action.type) {
+
+            case "SET_ALL_WEATHER":
+                const weatherCity = action.payload
+                const newAllWeather = { ...state.allWeather, ...weatherCity }
+                return { ...state, allWeather: newAllWeather}
+                
+            case "SET_CHART_DATA":
+                const chartDataCity = action.payload
+                const newAllChartData = { ...state.allChartData, ...chartDataCity}
+                return { ...state, allChartData: newAllChartData}
+
+            case "SET_FORECAST_ITEM_LIST":
+                const forecastItemListCity = action.payload
+                const newAllForecastItemListCity= { ...state.allForecastItemList, ...forecastItemListCity}
+                return { ...state, allForecastItemList: newAllForecastItemListCity}
+            
+            default:
+                return state
+        }
+
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialValue)
 
     return (
         
@@ -26,10 +51,10 @@ const App = () => {
                     <WelcomePage />
                 </Route>
                 <Route path="/main">
-                    <MainPage allWeather={allWeather} onSetAllWeather={onSetAllWeather} />
+                    <MainPage data={state} actions={dispatch} />
                 </Route>
                 <Route path="/city/:countryCode/:city">
-                    <CityPage allWeather={allWeather} onSetAllWeather={onSetAllWeather} />
+                    <CityPage data={state} actions={dispatch} />
                 </Route>
                 <Route>
                     <NotFoundPage />
