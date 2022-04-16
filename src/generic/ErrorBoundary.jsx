@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { PureComponent } from 'react'
 
-class ErrorBoundary extends Component{
+class ErrorBoundary extends PureComponent{
 
     constructor(props){
         super(props)
@@ -10,21 +10,6 @@ class ErrorBoundary extends Component{
         }
 
     }
-
-    /*componentDidMount() {
-        console.log("El componente se ha montado")
-    }
-    
-    componentDidUpdate(prevProps, prevState) {
-        console.log("Estado previo:", prevState.activo)
-        console.log("Estado nuevo:", this.state.activo)
-        console.log("El componente se ha actualizado")
-    }
-    
-    componentWillUnmount() {
-        console.log("El componente se ha desmontado")
-    }*/
-    //Lo mismo que setState({ hasError: true})
     static getDerivedStateFromError(error){
         return { hasError: true}
     }

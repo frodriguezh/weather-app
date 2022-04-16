@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import PropTypes from 'prop-types'
 import Grid  from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -7,6 +7,7 @@ import IconState, { validValues } from './../IconState'
 
 
 const ForecastItem = ({weekDay, hour, state, temperature}) => {
+    const iconContextSize = useMemo(() => ({ size:'5em' }),[])
     return (
         <div>
             <Grid container 
@@ -21,7 +22,7 @@ const ForecastItem = ({weekDay, hour, state, temperature}) => {
                 </Grid>
                 <Grid item>
                     <Typography>
-                        <IconContext.Provider value={{ size:'5em' }}>
+                        <IconContext.Provider value={iconContextSize}>
                         <IconState state={state} /> 
                         </IconContext.Provider>
                     </Typography>

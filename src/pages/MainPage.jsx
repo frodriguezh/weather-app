@@ -1,24 +1,22 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import  Paper  from '@material-ui/core/Paper'
 import AppFrame from './../components/AppFrame'
 import CityList from './../components/CityList'
 import { getCities } from '../utils/serviceCities'
 
-const MainPage = ({actions, data}) => {
+const MainPage = () => {
 
     const history = useHistory();
-    const onClickHandler = (city, countryCode) => {
+    const onClickHandler = useCallback((city, countryCode) => {
 
         history.push(`/city/${countryCode}/${city}`)
-    }
+    },[history])
 
     return (
         <AppFrame>
             <Paper elevation={3}>
                 <CityList 
-                    actions={actions}
-                    data={data}
                     cities={getCities()} 
                     onClickCity={onClickHandler}/>
             </Paper>
